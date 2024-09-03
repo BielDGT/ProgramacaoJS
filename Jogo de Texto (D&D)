@@ -1,0 +1,413 @@
+function Random1(){
+if (vida <= 0) {
+    throw new Error("Vida chegou a zero. Game Over.");
+}
+  aleatorio=Math.floor(Math.random()*4)+1
+  if (aleatorio===1){
+    Frente()
+  }
+  if (aleatorio===2){
+    Frente_Esquerda()
+  }
+  if (aleatorio===3){
+    Frente_Direita()
+  }
+  if (aleatorio===4){
+    Frente_Esquerda_Direita()
+  }
+}
+
+function Random2(){
+if (vida <= 0) {
+    throw new Error("Vida chegou a zero. Game Over.");
+}
+  
+  aleatorio=Math.floor(Math.random()*20)+1
+  if (aleatorio===1||aleatorio===2||aleatorio===3||aleatorio===4||aleatorio===5||aleatorio===6){
+    Bau()
+  }
+  if (aleatorio===7||aleatorio===8||aleatorio===9||aleatorio===10||aleatorio===11||aleatorio===12){
+    Slime()
+  }
+  if (aleatorio===13||aleatorio===14||aleatorio===15||aleatorio===16){
+    Goblin()
+  }
+  if (aleatorio===17||aleatorio===18||aleatorio===19){
+    Golen()
+  }
+  if (aleatorio===20){
+    Dragão()
+  }
+}
+
+function Drop(){
+if (vida <= 0) {
+    throw new Error("Vida chegou a zero. Game Over.");
+}
+ 
+  alert("Apos derrotar o Monstro apareceu um drop!!")
+  
+  aleatorio=Math.floor(Math.random()*3)+1
+  if (aleatorio===1){
+    atk+=5
+    alert("seu atack aumentou para: "+atk)
+  }
+  if (aleatorio===2){
+    def+=5
+    alert("sua defesa aumentou para: "+def)
+  }
+  if (aleatorio===3){
+    vida+=10
+    alert("sua vida aumentou para: "+vida)
+  }
+  alert('Voce sente sua força interior aumentar\n\natack: ' + atk + '\ndefesa: ' + def + "\nvida: " + vida)
+}
+
+
+function Bau(){
+if (vida <= 0) {
+    throw new Error("Vida chegou a zero. Game Over.");
+}
+ 
+  alert("Você entra na sala e a porta pela qual você entrou desaparece!!")
+  alert("Você encoutrou um bau misterioso e nesse bau havia 3 itens: poção azul, uma poção amarela e uma poção vermelha")
+  item = prompt("Qual você escolhe: \n1-poção azul \n2-poção amarela \n3-poção vermelha")
+  while(item<1||item>3){
+    item = prompt("Irmão ta brincando com o sistema? Escolhe direito, ou sofra as consequencias\n\n1-poção azul \n2-poção amarela \n3-poção vermelha")
+  }
+  if (item==1){
+    atk+=10
+    alert("seu atack aumentou para: "+atk)
+  }else if (item==2){
+    def+=10
+    alert("sua defesa aumentou para: "+def)
+  }else if (item==3){
+    vida+=30
+    alert("sua vida aumentou para: "+vida)
+  }
+  alert("Ao escolher o item o bau se fechou e você não pode pegar o restante dos itens")
+  alert('Voce sente sua força interior aumentar\n\natack: ' + atk + '\ndefesa: ' + def + "\nvida: " + vida)
+} 
+
+
+function Slime(){
+if (vida <= 0) {
+    throw new Error("Vida chegou a zero. Game Over.");
+}
+  
+  alert("Você entra na sala e a porta pela qual você entrou desaparece!!")
+  alert('Você se deparou com um Slime')
+  
+  var atkMonstro = 12
+  var defMonstro = 10
+  var vidaMonstro = 20
+  
+  while (vidaMonstro>=0||vida>=0){
+
+    dano = atk - defMonstro
+
+    if(dano>0){
+      vidaMonstro-=dano
+      alert(nome + " deu: " + dano + " de dano em Slime " + "\nVida do Slime: " + vidaMonstro)
+    }else{
+      alert(nome + " não causou dano")
+    }
+    
+    if(vidaMonstro<=0||vida<=0){
+      break;
+    }
+      
+    danoMonstro = atkMonstro - def
+
+    if(danoMonstro>0){
+      vida-=danoMonstro
+      alert("Slime deu: " + danoMonstro + " de dano em " + nome + "\nVida de " + nome + " é " + vida)
+    }else{
+      alert("Slime não causou dano em: " + nome)
+    }
+
+  if(vidaMonstro<=0||vida<=0){
+      break;
+    }
+  }
+  Drop()
+}
+
+function Goblin(){
+  if (vida <= 0) {
+    throw new Error("Vida chegou a zero. Código não será executado.");
+}
+
+  alert("Você entra na sala e a porta pela qual você entrou desaparece!!")
+  alert('Você se deparou com um Goblin')
+  
+  var atkMonstro = 20
+  var defMonstro = 15
+  var vidaMonstro = 40
+  
+  while (vidaMonstro>=0||vida>=0){
+
+    dano = atk - defMonstro
+
+    if(dano>0){
+      vidaMonstro-=dano
+      alert(nome + " deu: " + dano + " de dano em Goblin " + "\nVida do Goblin: " + vidaMonstro)
+    }else{
+      alert(nome + " não causou dano")
+    }
+    
+    if(vidaMonstro<=0||vida<=0){
+      break;
+    }
+
+    danoMonstro = atkMonstro - def
+
+    if(danoMonstro>0){
+      vida-=danoMonstro
+      alert("Goblin deu: " + danoMonstro + " de dano em " + nome + "\nVida de " + nome + " é " + vida)
+    }else{
+      alert("Goblin não causou dano em: " + nome)
+    }
+
+  if(vidaMonstro<=0||vida<=0){
+      break;
+    }
+
+  }
+  Drop()
+}
+
+function Golen(){
+  if (vida <= 0) {
+    throw new Error("Vida chegou a zero. Game Over.");
+}
+
+  alert("Você entra na sala e a porta pela qual você entrou desaparece!!")
+  alert('Você se deparou com um Golen')
+  
+  var atkMonstro = 30
+  var defMonstro = 20
+  var vidaMonstro = 50
+  
+  while (vidaMonstro>=0||vida>=0){
+
+    dano = atk - defMonstro
+
+    if(dano>0){
+      vidaMonstro-=dano
+      alert(nome + " deu: " + dano + " de dano em Golen " + "\nVida do Golen: " + vidaMonstro)
+    }else{
+      alert(nome + " não causou dano")
+    }
+    
+    if(vidaMonstro<=0||vida<=0){
+      break;
+    }
+
+    danoMonstro = atkMonstro - def
+
+    if(danoMonstro>0){
+      vida-=danoMonstro
+      alert("Golen deu: " + danoMonstro + " de dano em " + nome + "\nVida de " + nome + " é " + vida)
+    }else{
+      alert("Golen não causou dano em: " + nome)
+    }
+
+  if(vidaMonstro<=0||vida<=0){
+      break;
+    }
+  }
+  Drop()
+}
+
+function Dragão(){
+  if (vida <= 0) {
+    throw new Error("Vida chegou a zero. Game Over.");
+}
+
+  alert("Você entra na sala e a porta pela qual você entrou desaparece!!")
+  alert('Você se deparou com um Dragão')
+  
+  var atkMonstro = 40
+  var defMonstro = 30
+  var vidaMonstro = 100
+  
+  while (vidaMonstro>=0||vida>=0){
+
+    dano = atk - defMonstro
+
+    if(dano>0){
+      vidaMonstro-=dano
+      alert(nome + " deu: " + dano + " de dano em Dragão " + "\nVida do Dragão: " + vidaMonstro)
+    }else{
+      alert(nome + " não causou dano")
+    }
+    
+    if(vidaMonstro<=0||vida<=0){
+      break;
+    }
+
+    danoMonstro = atkMonstro - def
+
+    if(danoMonstro>0){
+      vida-=danoMonstro
+      alert("Dragão deu: " + danoMonstro + " de dano em " + nome + "\nVida de " + nome + " é " + vida)
+    }else{
+      alert("Dragão não causou dano em: " + nome)
+    }
+
+  if(vidaMonstro<=0||vida<=0){
+      break;
+    }
+
+  }
+  Drop()
+}
+
+function Boss(){
+  if (vida <= 0) {
+    throw new Error("Vida chegou a zero. Game Over.");
+}
+
+  alert("Você entra na sala e a porta pela qual você entrou desaparece!!")
+  alert('Você se deparou com um Dragão Branco De Olhos Azuis')
+  
+  var atkMonstro = 50
+  var defMonstro = 40
+  var vidaMonstro = 300
+  
+  while (vidaMonstro>=0||vida>=0){
+
+    dano = atk - defMonstro
+
+    if(dano>0){
+      vidaMonstro-=dano
+      alert(nome + " deu: " + dano + " de dano em Dragão Branco De Olhos Azuis " + "\nVida do Dragão Branco De Olhos Azuis: " + vidaMonstro)
+    }else{
+      alert(nome + " não causou dano")
+    }
+    
+    if(vidaMonstro<=0||vida<=0){
+      break;
+    }
+
+    danoMonstro = atkMonstro - def
+
+    if(danoMonstro>0){
+      vida-=danoMonstro
+      alert("Dragão Branco De Olhos Azuis deu: " + danoMonstro + " de dano em " + nome + "\nVida de " + nome + " é " + vida)
+    }else{
+      alert("Dragão Branco De Olhos Azuis não causou dano em: " + nome)
+    }
+
+  if(vidaMonstro<=0||vida<=0){
+      break;
+    }
+
+  }
+}
+
+
+function Frente(){
+  if (vida <= 0) {
+    throw new Error("Vida chegou a zero. Game Over.");
+}
+
+  alert("Você se depara com apenas uma porta que aparentemente vai te levar a outro quarto.")
+  escolha = prompt("Você vai abri-la?\n1-Sim!\n2-Não!")
+  while(escolha!="1"){
+    escolha = prompt("Irmão ta brincando com o sistema? Escolhe direito. Lembre-se você só pode seguir em frente!!\n\n1-Sim!\n2-Não!")
+  }
+}
+
+function Frente_Esquerda(){
+  if (vida <= 0) {
+    throw new Error("Vida chegou a zero. Game Over.");
+}
+
+  alert("Você se depara com duas portas que aparentemente vai te levar a outro quarto.")
+  escolha = prompt("Qual porta você entra?\n1-Porta a sua frente\n2-Porta a sua esquerda.")
+  while(escolha<"1"||escolha>"2"){
+    escolha = prompt("Irmão ta brincando com o sistema? Escolhe direito, ou sofra as consequencias\n\n1-Porta a sua frente\n2-Porta a sua esquerda.")
+  }
+}
+
+function Frente_Direita(){
+if (vida <= 0) {
+    throw new Error("Vida chegou a zero. Game Over.");
+}
+
+  alert("Você se depara com duas portas que aparentemente vai te levar a outro quarto.")
+  escolha = prompt("Qual porta você entra?\n1-Porta a sua frente\n2-Porta a sua direita.")
+  while(escolha<"1"||escolha>"2"){
+    escolha = prompt("Irmão ta brincando com o sistema? Escolhe direito, ou sofra as consequencias\n\n1-Porta a sua frente\n2-Porta a sua direita.")
+  }
+}
+
+function Frente_Esquerda_Direita(){
+if (vida <= 0) {
+    throw new Error("Vida chegou a zero. Game Over.");
+}
+  
+  alert("Você se depara com tres portas que aparentemente vai te levar a outro quarto.")
+  escolha = prompt("Qual porta você entra?\n1-Porta a sua frente.\n2-Porta a sua esquerda.\n3-Porta a sua direita.")
+  while(escolha<"1"||escolha>"3"){
+    escolha = prompt("Irmão ta brincando com o sistema? Escolhe direito, ou sofra as consequencias\n\n1-Porta a sua frente.\n2-Porta a sua esquerda.\n3-Porta a sua direita.")
+  }
+}
+
+
+var nome = ""
+var atk = 20
+var def = 10
+var vida = 30
+
+nome = prompt("Olá jovem aventureiro, me diga qual o seu nome?")
+alert (nome + " Seja bem vindo a RandomRooms!!")
+
+alert("Você acordou em um quarto sem saber como você chegou aqui ou quem você é, apenas sente dentro de você que deve seguir em frente.\nVocê nota um baú no quarto ao seu lado direito. Você gostaria de abri-lo?")
+      
+escolha = prompt("Qual a sua decisão: \n1-Você escolhe abrir \n2-Você escolhe não abrir")
+while(escolha<'1'||escolha>'2'){
+    escolha = prompt("Irmão ta brincando com o sistema? Escolhe direito, ou sofra as consequencias\n\n1-Você escolhe abrir \n2-Você escolhe não abrir")
+  }
+      
+if(escolha == "1"){
+  alert("Você escolheu abrir o baú e nesse baú havia 3 itens: poção azul, uma poção amarela e uma poção vermelha")
+  item = prompt("Qual você escolhe: \n1-poção azul \n2-poção amarela \n3-poção vermelha")
+  while(item<1||item>3){
+    item = prompt("Irmão ta brincando com o sistema? Escolhe direito, ou sofra as consequencias\n\n1-poção azul \n2-poção amarela \n3-poção vermelha")
+  }
+  if (item==1){
+    atk+=10
+    alert("seu atack aumentou para: "+atk)
+  }else if (item==2){
+    def+=10
+    alert("sua defesa aumentou para: "+def)
+  }else if (item==3){
+    vida+=30
+    alert("sua vida aumentou para: "+vida)
+  }
+  alert("Ao escolher o item o bau se fechou e você não pode pegar o restante dos itens")
+  alert('Voce sente sua força interior aumentar\n\natack: ' + atk + '\ndefesa: ' + def + "\nvida: " + vida)
+}
+if(escolha == "2"){
+  alert("Nada acontece e você ignora o bau, (que pena)")
+}
+
+var cont=0
+
+while(cont<=10){
+  Random1()
+  Random2()
+  cont++
+}
+if (vida <= 0) {
+    throw new Error("Vida chegou a zero. Game Over.");
+}
+alert('Parabens ' + nome + '!! Você chegou ao final!! Boa Sorte!!')
+Boss()
+if (vida <= 0) {
+    throw new Error("Vida chegou a zero. Game Over.");
+}
+alert('Parabens ' + nome + '!! Você concluiu o desafio RandomRooms!!')
